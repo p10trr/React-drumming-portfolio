@@ -1,38 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Beastly&family=Rubik+Glitch&family=Rubik+Microbe&family=Rubik:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+* {
+  margin: auto;
+  font-family: 'Rubik', sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-container {
+  display: flex;
+  flex-direction: row;
+  height: 12vh;
+  background-color: black;
+  font-size: 3vw;
+  font-weight: bolder;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-container a, span {
+  text-decoration: none;
+  color: aliceblue;
 }
 
-.App-header {
-  background-color: #282c34;
+.header-container a:hover, span:hover {
+  font-family: 'Rubik Microbe', cursive;
+  letter-spacing: 0.3em;
+  font-size: 3.2vw;
+  cursor: pointer;
+}
+
+.my-name {
+  color: white;
+  font-size: 2vw;
+  font-weight: lighter;
+  letter-spacing: 0.2em;
+}
+
+.main-container {
+height: auto;
+font-family: 'Rubik', sans-serif;
+}
+.main-photo {
+  max-width: 100vw;
+
+}
+
+h1 {
+  margin: 4vh;
+  font-size: 6vw;
+}
+
+
+.testimonials-container {
   min-height: 100vh;
   display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.testimonials-card {
+  width: 30vw;
+  min-height: 35vh;
+  padding: 0 1vw;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-image: url(/public/img/crowd.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-wrap: wrap;
+  color: black;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+ 
+.about-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 3vw;
+  border-bottom: 2px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+.about-container img {
+  width: 50vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.about-container h1 {
+  position: absolute;
+  right: 8vw;
+  top: 12vh;
+  z-index: -1;
+}
+
+.about-container p {
+  text-align: left;
+  margin: auto 2vw;
+}
+
+.works-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.works-card {
+  position: relative;
+  width: 25vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.works-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.works-card img {
+  width: 74%;
+}
+
+.videos-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.videos-container iframe {
+  width: 30vw;
+  height: 30vh;
+  margin-bottom: 4vh;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+h5 {
+  margin-top: 4vh;
+}
+.contact-container {
+  position: absolute;
+  width: 100vw;
+  min-height: 155vh;
+  margin-top: 12vh;
+  background: rgba(94, 94, 94, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.contact-modal {
+  position: absolute;
+  left: 20vw;
+  top: 1vh;
+  width: 60vw;
+  min-height: 80vh;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgb(0, 0, 0) 0px 22px 70px 4px;
+  backdrop-filter: blur(4px);
+}
+
+.close-btn {
+  position: absolute;
+  right: 1vw;
+  top: 0;
+  cursor: pointer;
+  color: black;
+}
+
+.contact-form{
+  margin-top: 2vh;
+}
+  .input-block{
+      background-color: rgba(white, .8);
+      border: solid 1px black;
+      width: 80%;
+      min-height: 5vh;
+      padding: 3vh;
+      position: relative;
+      margin-bottom: 3vh;
   }
-  to {
-    transform: rotate(360deg);
+
+  .textarea .form-control {
+    min-height: 20vh;
   }
+
+  label{
+    position: absolute;
+    left: 2vw;
+    top: 2vh;
+    display: block;
+    margin: 0;
+    font-weight: 300;
+    z-index: 1;
+    color: black;
+    font-size: 1.5vw;
+    line-height: 1vw;
+}
+
+.input-active {
+  top: 0;
+  font-size: 0.9vw;
+  color: grey;
+}
+
+.form-control{
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0;
+  border: none;
+  height: 6vh;
+  width: 48vw;
+  position: relative;
+  z-index: 2;
+  font-size: 1.8rem;
+  color: black;
+}
+
+.form-control:focus {
+  background-color: white;
+  outline: solid 1px black;
+  min-height: 8vh;
+}
+
+.textarea .form-control:focus {
+  min-height: 20vh;
+}
+
+.error-msg {
+  color: red;
+  font-size: 2vw;
+}
+
+.message-success {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  height: 50%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.879);
+  color: aliceblue;
+  border: solid 1px white;
+}
+
+.message-success button {
+  width: 100%;
+  height: 15%;
+  background-color: aliceblue;
+  font-size: larger;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.square-button{
+  background-color: rgba(white, .8);
+  color: darken(black, 10%);
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 60px;
+  height: 8vh;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  
+  }
+
+.footer-container {
+  height: 10vh;
+  background-color: black;
+  color: aliceblue;
+  margin: auto;
+  font-size: 0.8rem;
+  padding: 0.6rem;
+}
+
+.icons > a {
+  margin: auto 2vw;
+  font-size: xx-large;
+  color: aliceblue;
+}
+
+.icons {
+  margin-bottom: 2vh;
+}
+.hamburger {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .header-desktop {
+    display: none;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  .mobile-menu {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    position: fixed;
+    height:100vh!important;
+    overflow: hidden;
+    z-index: 1;
+}
+#sidebarMenu {
+    font-size: 5vw;
+    height: 100%;
+    position: fixed;
+    right: 0px;
+    width: 100vw;
+    margin-top: 0;
+    transform: translateX(100vw);
+    transition: transform 250ms ease-in-out;
+    background: rgba(0, 0, 0, 0.897)
+}
+.sidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    top: 5vh;
+    left: 90vw;
+    height: 22px;
+    width: 22px;
+}
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
+.header-container {
+  position: absolute;
+  top: 20vh;
+  left: 16vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 16vw;
+  z-index: 2;
+  transform: translateX(100vw);
+  transition: transform 250ms ease-in-out;
+}
+
+input[type="checkbox"]:checked ~ .header-container {
+  transform: translateX(0);
+}
+
+.header-container a:hover, span:hover {
+  font-size: 17vw;
+  letter-spacing: normal;
+}
+
+.my-name {
+ display: none;
+}
+.my-name-mobile {
+  background-color: black;
+  color: aliceblue;
+  height: 10vh;
+  font-size: large;
+  letter-spacing: 0.4rem;
+  padding-top: 3vh;
+}
+
+.testimonials-card {
+  width: 80vw;
+  margin-bottom: 4vh;
+}
+
+.works-card {
+  width: 80vw;
+}
+
+.videos-container iframe {
+  width: 80vw;
+}
+
+.contact-container {
+  width: 100vw;
+  left: -16vw;
+  top: -20vh;
+}
+.contact-modal {
+  width: 95vw;
+  left: 3vw;
+}
+.close-btn, h5 {
+  font-size: 10vw;
+}
+
 }

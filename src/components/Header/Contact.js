@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
+import emailjs from '@emailjs/browser';
 
 export default function Contact({closeModal, socialMedia}) {
 
@@ -8,6 +8,9 @@ export default function Contact({closeModal, socialMedia}) {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+
+
+
   const toggleFocus = () => {
     setFocusActive(!focusActive)
   };
@@ -16,10 +19,23 @@ export default function Contact({closeModal, socialMedia}) {
     const {name, value} = e.target;
     setFormValues({ ...formValues, [name]: value });  };
 
+  const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_g0gb2zw', 'template_wctol3j', e.target, 'QLvEVik4C-mGNv8ow')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    }
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+    sendEmail(e);
   };
 
   useEffect(() => {
@@ -52,48 +68,48 @@ export default function Contact({closeModal, socialMedia}) {
        {socialMedia}
        <section className="contact-wrap">
          <span className='close-btn' onClick={() => closeModal(false)} >&times;</span>
-  <form action="" onSubmit={handleSubmit} className="contact-form">
-    <div className="contact-col">
-      <div className="input-block">
-        <label for="" className={focusActive ? "input-active" : ""}>Name(s)</label>
-        <input type="text" name="name" value={formValues.name} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}/>
-        <p className='error-msg'>{formErrors.name}</p>
-      </div>
+          <form action="" onSubmit={handleSubmit} className="contact-form">
+            <div className="contact-col">
+               <div className="input-block">
+               <label for="" className={focusActive ? "input-active" : ""}>Name(s)</label>
+                <input type="text" name="name" value={formValues.name} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}/>
+                <p className='error-msg'>{formErrors.name}</p>
+              </div>
      
-    </div>
-    <div className="contact-col">
-      <div className="input-block">
-        <label for="" className={focusActive ? "input-active" : ""}>Phone</label>
-        <input type="text" name="phone" value={formValues.phone} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange} />
-      </div>
-    </div>
-    <div className="contact-col">
-      <div class="input-block">
-        <label for="" className={focusActive ? "input-active" : ""}>Email</label>
-        <input type="email" name="email" value={formValues.email} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}/>
-        <p className='error-msg'>{formErrors.email}</p>
-      </div>
+             </div>
+            <div className="contact-col">
+              <div className="input-block">
+                <label for="" className={focusActive ? "input-active" : ""}>Phone</label>
+                <input type="text" name="phone" value={formValues.phone} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange} />
+              </div>
+            </div>
+            <div className="contact-col">
+              <div class="input-block">
+              <label for="" className={focusActive ? "input-active" : ""}>Email</label>
+              <input type="email" name="email" value={formValues.email} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}/>
+              <p className='error-msg'>{formErrors.email}</p>
+              </div>
       
-    </div>
-    <div className="contact-col">
-      <div className="input-block">
-        <label for="" className={focusActive ? "input-active" : ""}>Message Subject</label>
-        <input type="text" name="subject" value={formValues.subject} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}/>
-      </div>
-    </div>
-    <div className="contact-col">
-      <div className="input-block textarea">
-        <label for="" className={focusActive ? "input-active" : ""}>Drop your message here</label>
-        <textarea type="text" name="message" value={formValues.message} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}></textarea>
-        <p className='error-msg'>{formErrors.message}</p>
-      </div>
+            </div>
+            <div className="contact-col">
+              <div className="input-block">
+                <label for="" className={focusActive ? "input-active" : ""}>Message Subject</label>
+                <input type="text" name="subject" value={formValues.subject} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}/>
+              </div>
+            </div>
+            <div className="contact-col">
+              <div className="input-block textarea">
+                <label for="" className={focusActive ? "input-active" : ""}>Drop your message here</label>
+                <textarea type="text" name="message" value={formValues.message} className="form-control" onFocus={toggleFocus} onBlur={toggleFocus} onChange={handleChange}></textarea>
+                <p className='error-msg'>{formErrors.message}</p>
+              </div>
       
-    </div>
-    <div class="contact-col">
-      <button class="square-button">Send</button>
-    </div>
-  </form>
-</section>
+            </div>
+            <div class="contact-col">
+              <button class="square-button" type="submit">Send</button>
+            </div>
+          </form>
+        </section>
 
     </div>
   )

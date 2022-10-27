@@ -88,6 +88,7 @@ const associatedWorks = [
     <div>
         <div className='about-container'>
         <img src='img/maumau.jpeg' alt='maumau'/>
+        <div className='about'>
           <h1>About me</h1>
           <p>I'm a session drummer and composer based in London, United Kingdom. Throughout my carreer
             I've been a part of many interesting and diverse projects,
@@ -95,7 +96,7 @@ const associatedWorks = [
             I'm always looking forward to new challenges and I never shy away from discovering and experimenting with 
             new styles and approaches to music. 
           </p>
-          
+         </div> 
         </div>
         <h1>Associated Works</h1>
         <div className='works-container'>

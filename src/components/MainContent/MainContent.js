@@ -25,7 +25,7 @@ export default function MainContent() {
  
   return (
     <div className='main-container'>
-      <img src='img/mainphoto.jpg' alt='mainPhoto' className='main-photo'/> 
+      <img src="./img/mainphoto.jpg" alt='mainPhoto' className='main-photo'/> 
       <div>
         <h1 className='testimonials'>Testimonials</h1>
           <div className='testimonials-container'>
